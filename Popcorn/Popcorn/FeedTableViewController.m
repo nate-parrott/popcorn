@@ -14,6 +14,24 @@
 
 @implementation FeedTableViewController
 
+- (instancetype) initWithStyle:(UITableViewStyle)style event:(PFObject *)event isStaff:(BOOL) staff {
+    self = [super initWithStyle:style];
+    self.event = event;
+    self.isStaff = staff;
+    PFQuery *postQuery = [PFQuery queryWithClassName:@"post"];
+    [postQuery whereKey:@"eventFBid" equalTo:self.event[@"fbid"]];
+    [postQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            self.posts = objects;
+            NSLog(@"%@", objects);
+            [self.tableView reloadData];
+        } else {
+            NSLog(@"Error loading post objects");
+        }
+    }];
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -32,26 +50,32 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    if (section == 0) {
+        NSLog(@"first section");
+        return 1;
+    }
+    return [self.posts count];
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+    }
+    if (indexPath.section == 0) {
+        [cell.textLabel setText:@"Send an update!"];
+    } else {
+    [cell.textLabel setText:[self.posts objectAtIndex:[indexPath row]][@"message"]];
+    }
     return cell;
 }
-*/
 
 /*
 // Override to support conditional editing of the table view.
