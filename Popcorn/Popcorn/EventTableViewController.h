@@ -1,5 +1,5 @@
 //
-//  LoginViewController.h
+//  EventTableViewController.h
 //  Popcorn
 //
 //  Created by Jessica Liang on 2/21/15.
@@ -7,9 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <FacebookSDK/FacebookSDK.h>
 
-
-@interface LoginViewController : UIViewController <FBLoginViewDelegate>
-
+@interface EventTableViewController : UITableViewController
+@property NSArray *events;
 @end
