@@ -19,7 +19,7 @@
 - (instancetype)initWithEvent:(PFObject *)event {
     self = [super init];
     
-    FeedTableViewController *feed = [[FeedTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    FeedTableViewController *feed = [[FeedTableViewController alloc] initWithStyle:UITableViewStylePlain event:event isStaff:[event[@"staffFbids"] containsObject:[FBSession activeSession].accessTokenData.userID]];
     // get the event title:
     [FBRequestConnection startWithGraphPath:[NSString stringWithFormat:@"/%@", event[@"fbid"]]
                                  parameters: nil
