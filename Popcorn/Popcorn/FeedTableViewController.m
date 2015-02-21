@@ -1,39 +1,22 @@
 //
-//  EventTableViewController.m
+//  FeedTableViewController.m
 //  Popcorn
 //
 //  Created by Jessica Liang on 2/21/15.
 //  Copyright (c) 2015 Nate Parrott. All rights reserved.
 //
 
-#import "EventTableViewController.h"
-#import <FacebookSDK/FacebookSDK.h>
-#import <Parse/Parse.h>
-#import "EventTabBarViewController.h"
-#import "AppDelegate.h"
+#import "FeedTableViewController.h"
 
-@interface EventTableViewController ()
+@interface FeedTableViewController ()
 
 @end
 
-@implementation EventTableViewController
+@implementation FeedTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [FBRequestConnection startWithGraphPath:@"/me/events"
-                                 parameters: @{@"since": @(0.1), @"fields":@"owner, name"}
-                                 HTTPMethod:@"GET"
-                          completionHandler:^(
-                                              FBRequestConnection *connection,
-                                              id result,
-                                              NSError *error
-                                              ) {
-                              
-                              self.events = [result valueForKey:@"data"];
-                              [self.tableView reloadData];
-                          }];
     
-
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -49,45 +32,27 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 1;
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return [self.events count];
+    return 0;
 }
 
+/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-    }
-                             
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    
     // Configure the cell...
-    [cell.textLabel setText:[[self.events objectAtIndex:[indexPath row]] valueForKey:@"name"]];
+    
     return cell;
 }
+*/
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSDictionary *event = self.events[indexPath.row];
-    PFQuery *queryExistingEvent = [PFQuery queryWithClassName:@"event"];
-    [queryExistingEvent whereKey:@"fbid" equalTo:event[@"id"]];
-    [queryExistingEvent findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        PFObject *parseEvent = objects.firstObject;
-        if (!parseEvent) {
-            parseEvent = [PFObject objectWithClassName:@"event" dictionary:@{
-                                                                        @"fbid": event[@"id"],
-                                                                        @"staffFbids": @[event[@"owner"][@"id"]]
-                                                                        }];
-            [parseEvent saveEventually];
-        }
-        EventTabBarViewController *tabs = [[EventTabBarViewController alloc] initWithEvent:parseEvent];
-        AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-        appDelegate.window.rootViewController = tabs;
-    }];
-    
-}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

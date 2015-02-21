@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "LoginViewController.h"
 #import "EventTableViewController.h"
+#import <Parse.h>
 
 @interface AppDelegate ()
 
@@ -20,6 +21,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // setup parse
+    [Parse setApplicationId:@"kozJXHacqMmoSeNU5QtOBXq4sYva9imTxuMGBVvl" clientKey:@"ROlcrVBNkdz4heuyf8e2z87bbaZAbBRutjvjszBE"];
+    
     // Initialize our window.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
