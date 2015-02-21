@@ -10,5 +10,5 @@
 #import <Parse.h>
 
 @interface FeedTableViewController : UITableViewController
-@property 
+
 @end

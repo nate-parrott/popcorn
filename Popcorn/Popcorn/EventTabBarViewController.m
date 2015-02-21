@@ -9,6 +9,7 @@
 #import "EventTabBarViewController.h"
 #import "FeedTableViewController.h"
 #import <FacebookSDK.h>
+#import "MapViewController.h"
 
 @interface EventTabBarViewController ()
 
@@ -20,6 +21,8 @@
     self = [super init];
     
     FeedTableViewController *feed = [[FeedTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    MapViewController *map = [[MapViewController alloc] init];
+    map.event = event;
     // get the event title:
     [FBRequestConnection startWithGraphPath:[NSString stringWithFormat:@"/%@", event[@"fbid"]]
                                  parameters: nil
@@ -33,7 +36,7 @@
                               feed.title = result[@"name"];
                           }];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:feed];
-    self.viewControllers = @[nav];
+    self.viewControllers = @[nav, map];
     
     return self;
 }

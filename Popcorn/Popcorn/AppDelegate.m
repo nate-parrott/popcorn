@@ -79,4 +79,12 @@
 {    return [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
 }
 
++ (AppDelegate *)shared {
+    return (AppDelegate *)[UIApplication sharedApplication].delegate;
+}
+
+- (BOOL)isHostOfEvent:(PFObject *)event {
+    return [[event valueForKey:@"staffFbids"] containsObject:[FBSession activeSession].accessTokenData.userID];
+}
+
 @end

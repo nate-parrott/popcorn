@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
+#import <Parse/Parse.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
++ (AppDelegate *)shared;
+- (BOOL)isHostOfEvent:(PFObject *)event;
 
 @end
-

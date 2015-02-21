@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F0FFCBC1A992D9A005F234F /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0FFCBB1A992D9A005F234F /* MapViewController.m */; };
+		5F0FFCBF1A99332A005F234F /* MapPin.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0FFCBE1A99332A005F234F /* MapPin.m */; };
+		5F0FFCC41A99488D005F234F /* PinAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0FFCC31A99488D005F234F /* PinAnnotationView.m */; };
 		5FE1F7C41A987EB400394947 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE1F7C31A987EB400394947 /* main.m */; };
 		5FE1F7C71A987EB400394947 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE1F7C61A987EB400394947 /* AppDelegate.m */; };
-		5FE1F7CA1A987EB400394947 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE1F7C91A987EB400394947 /* FirstViewController.m */; };
-		5FE1F7CD1A987EB400394947 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE1F7CC1A987EB400394947 /* SecondViewController.m */; };
 		5FE1F7D21A987EB400394947 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FE1F7D11A987EB400394947 /* Images.xcassets */; };
 		5FE1F7E11A987EB500394947 /* PopcornTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE1F7E01A987EB500394947 /* PopcornTests.m */; };
 		CCBB92819F070F06E2A12679 /* libPods-Popcorn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66A1C386B7473947F66EE66F /* libPods-Popcorn.a */; };
@@ -32,14 +33,17 @@
 
 /* Begin PBXFileReference section */
 		2D2EBBB7CE2E552F35977987 /* Pods-Popcorn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Popcorn.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Popcorn/Pods-Popcorn.debug.xcconfig"; sourceTree = "<group>"; };
+		5F0FFCBA1A992D9A005F234F /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		5F0FFCBB1A992D9A005F234F /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		5F0FFCBD1A99332A005F234F /* MapPin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapPin.h; sourceTree = "<group>"; };
+		5F0FFCBE1A99332A005F234F /* MapPin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapPin.m; sourceTree = "<group>"; };
+		5F0FFCC21A99488D005F234F /* PinAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinAnnotationView.h; sourceTree = "<group>"; };
+		5F0FFCC31A99488D005F234F /* PinAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinAnnotationView.m; sourceTree = "<group>"; };
 		5FE1F7BE1A987EB400394947 /* Popcorn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Popcorn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FE1F7C21A987EB400394947 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FE1F7C31A987EB400394947 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5FE1F7C51A987EB400394947 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5FE1F7C61A987EB400394947 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		5FE1F7C91A987EB400394947 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		5FE1F7CB1A987EB400394947 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		5FE1F7CC1A987EB400394947 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		5FE1F7D11A987EB400394947 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5FE1F7DA1A987EB500394947 /* PopcornTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PopcornTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FE1F7DF1A987EB500394947 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -125,9 +129,12 @@
 				F8C976921A991A9A00FC2831 /* EventTabBarViewController.m */,
 				F8C976941A991F5400FC2831 /* FeedTableViewController.h */,
 				F8C976951A991F5400FC2831 /* FeedTableViewController.m */,
-				5FE1F7C91A987EB400394947 /* FirstViewController.m */,
-				5FE1F7CB1A987EB400394947 /* SecondViewController.h */,
-				5FE1F7CC1A987EB400394947 /* SecondViewController.m */,
+				5F0FFCBA1A992D9A005F234F /* MapViewController.h */,
+				5F0FFCBB1A992D9A005F234F /* MapViewController.m */,
+				5F0FFCC21A99488D005F234F /* PinAnnotationView.h */,
+				5F0FFCC31A99488D005F234F /* PinAnnotationView.m */,
+				5F0FFCBD1A99332A005F234F /* MapPin.h */,
+				5F0FFCBE1A99332A005F234F /* MapPin.m */,
 				5FE1F7D11A987EB400394947 /* Images.xcassets */,
 				5FE1F7C11A987EB400394947 /* Supporting Files */,
 			);
@@ -293,14 +300,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F0FFCBF1A99332A005F234F /* MapPin.m in Sources */,
 				F8C976901A98A55600FC2831 /* EventTableViewController.m in Sources */,
-				5FE1F7CD1A987EB400394947 /* SecondViewController.m in Sources */,
 				5FE1F7C71A987EB400394947 /* AppDelegate.m in Sources */,
-				5FE1F7CA1A987EB400394947 /* FirstViewController.m in Sources */,
+				5F0FFCC41A99488D005F234F /* PinAnnotationView.m in Sources */,
 				F8C976931A991A9A00FC2831 /* EventTabBarViewController.m in Sources */,
 				5FE1F7C41A987EB400394947 /* main.m in Sources */,
 				F8C976891A988ADB00FC2831 /* LoginViewController.m in Sources */,
 				F8C976961A991F5400FC2831 /* FeedTableViewController.m in Sources */,
+				5F0FFCBC1A992D9A005F234F /* MapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

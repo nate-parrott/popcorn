@@ -1,5 +1,5 @@
 //
-//  SecondViewController.h
+//  MapViewController.h
 //  Popcorn
 //
 //  Created by Nate Parrott on 2/21/15.
@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
-@interface SecondViewController : UIViewController
+@interface MapViewController : UIViewController
 
+@property (nonatomic) PFObject *event;
 
 @end
-
