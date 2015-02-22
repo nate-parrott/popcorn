@@ -51,7 +51,6 @@
                                               id result,
                                               NSError *error
                                               ) {
-                              NSLog(@"%@", result);
                               feed.title = result[@"name"];
                           }];
     self.viewControllers = tabs;

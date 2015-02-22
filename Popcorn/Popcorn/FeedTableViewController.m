@@ -8,6 +8,9 @@
 
 #import "FeedTableViewController.h"
 #import "FeedCardView.h"
+#import "UpdateComposerViewController.h"
+#import "AppDelegate.h"
+#import "EventTableViewController.h"
 
 @interface FeedTableViewController ()
 
@@ -16,6 +19,15 @@
 @implementation FeedTableViewController
 
 - (instancetype) initWithStyle:(UITableViewStyle)style event:(PFObject *)event isStaff:(BOOL) staff {
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc]
+                                   initWithTitle:@"back"
+                                   style: UIBarButtonItemStylePlain
+                                   target:self
+                                   action:@selector(dismissView:)];
+    self.navigationItem.leftBarButtonItem = backButton;
+    
+
+    [self.tableView setBackgroundColor:[UIColor grayColor]];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self = [super initWithStyle:style];
     self.event = event;
@@ -25,7 +37,7 @@
     [postQuery whereKey:@"eventFBid" equalTo:self.event[@"fbid"]];
     [postQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            self.posts = objects;
+            self.posts = [NSMutableArray arrayWithArray:objects];
             NSLog(@"%@", objects);
             [self.tableView reloadData];
         } else {
@@ -34,9 +46,15 @@
     }];
     return self;
 }
-
+- (void) dismissView:(UIBarButtonItem*)sender {
+    EventTableViewController *event = [[EventTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    appDelegate.window.rootViewController = event;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"Viewdidload");
+    NSLog(@"%@", self.posts);
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -54,22 +72,36 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return 2;
+    if (self.isStaff) {
+        return 2;
+    }
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
     if (section == 0 && self.isStaff) {
-        NSLog(@"first section");
         return 1;
+    } else {
+        return [self.posts count];
     }
-    return [self.posts count];
 }
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0) {
+    if (indexPath.section == 0 && self.isStaff) {
         NSLog(@"lets bring up the composer!");
+        UpdateComposerViewController *composer = [[UpdateComposerViewController alloc] initWithEventID:self.event[@"fbid"]];
+        UINavigationController *composerNav = [[UINavigationController alloc] initWithRootViewController:composer];
+        [composer setTitle:@"Composer!"];
+        composer.completionBlock = ^(PFObject * newPost) {
+            [self.posts insertObject:newPost atIndex:0];
+            [self.tableView reloadData];
+        };
+        [self presentViewController:composerNav animated:YES completion:^{
+            
+        }];
     }
 }
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([indexPath section] == 0) {
         return 50;

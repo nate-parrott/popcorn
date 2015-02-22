@@ -23,6 +23,9 @@
 		5FE1F7D21A987EB400394947 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FE1F7D11A987EB400394947 /* Images.xcassets */; };
 		5FE1F7E11A987EB500394947 /* PopcornTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE1F7E01A987EB500394947 /* PopcornTests.m */; };
 		CCBB92819F070F06E2A12679 /* libPods-Popcorn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66A1C386B7473947F66EE66F /* libPods-Popcorn.a */; };
+		F8B23F791A996C8D00F2CF01 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE1F7C61A987EB400394947 /* AppDelegate.m */; };
+		F8B23F7A1A996C9B00F2CF01 /* EventTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8C9768F1A98A55600FC2831 /* EventTableViewController.m */; };
+		F8B23F7D1A99726F00F2CF01 /* UpdateComposerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8B23F7C1A99726F00F2CF01 /* UpdateComposerViewController.m */; };
 		F8C976891A988ADB00FC2831 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8C976871A988ADB00FC2831 /* LoginViewController.m */; };
 		F8C976931A991A9A00FC2831 /* EventTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8C976921A991A9A00FC2831 /* EventTabBarViewController.m */; };
 		F8C976961A991F5400FC2831 /* FeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8C976951A991F5400FC2831 /* FeedTableViewController.m */; };
@@ -70,6 +73,8 @@
 		5FE1F7E01A987EB500394947 /* PopcornTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopcornTests.m; sourceTree = "<group>"; };
 		66A1C386B7473947F66EE66F /* libPods-Popcorn.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Popcorn.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77C589BCFF9B088870F68790 /* Pods-Popcorn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Popcorn.release.xcconfig"; path = "Pods/Target Support Files/Pods-Popcorn/Pods-Popcorn.release.xcconfig"; sourceTree = "<group>"; };
+		F8B23F7B1A99726F00F2CF01 /* UpdateComposerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateComposerViewController.h; sourceTree = "<group>"; };
+		F8B23F7C1A99726F00F2CF01 /* UpdateComposerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateComposerViewController.m; sourceTree = "<group>"; };
 		F8C976871A988ADB00FC2831 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		F8C976881A988ADB00FC2831 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		F8C9768E1A98A55600FC2831 /* EventTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventTableViewController.h; sourceTree = "<group>"; };
@@ -155,6 +160,8 @@
 				5F0FFCC91A9951A7005F234F /* GetHelpViewController.m */,
 				5F0FFCCA1A9951A7005F234F /* GetHelpViewController.xib */,
 				5F0FFCBA1A992D9A005F234F /* MapViewController.h */,
+				F8B23F7B1A99726F00F2CF01 /* UpdateComposerViewController.h */,
+				F8B23F7C1A99726F00F2CF01 /* UpdateComposerViewController.m */,
 				5F0FFCBB1A992D9A005F234F /* MapViewController.m */,
 				5F0FFCCD1A9951CE005F234F /* NPKeyboardAvoidanceView.h */,
 				5F0FFCCE1A9951D5005F234F /* NPKeyboardAvoidanceView.m */,
@@ -338,16 +345,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F9582AB1A99A2A700144DF6 /* EventTableViewController.m in Sources */,
-				5F9582AA1A99A29F00144DF6 /* AppDelegate.m in Sources */,
+				F8C9769C1A99466C00FC2831 /* FeedCardView.m in Sources */,
+				5F9582A01A9988E200144DF6 /* RequestTableViewController.m in Sources */,
+				F8B23F7A1A996C9B00F2CF01 /* EventTableViewController.m in Sources */,
+				F8B23F791A996C8D00F2CF01 /* AppDelegate.m in Sources */,
 				5F0FFCBF1A99332A005F234F /* MapPin.m in Sources */,
 				5F0FFCC41A99488D005F234F /* PinAnnotationView.m in Sources */,
 				F8C9769C1A99466C00FC2831 /* FeedCardView.m in Sources */,
-				5F9582A01A9988E200144DF6 /* RequestTableViewController.m in Sources */,
 				F8C976931A991A9A00FC2831 /* EventTabBarViewController.m in Sources */,
 				5FE1F7C41A987EB400394947 /* main.m in Sources */,
 				5F0FFCCF1A9951D5005F234F /* NPKeyboardAvoidanceView.m in Sources */,
 				F8C976891A988ADB00FC2831 /* LoginViewController.m in Sources */,
+				F8B23F7D1A99726F00F2CF01 /* UpdateComposerViewController.m in Sources */,
 				F8C976961A991F5400FC2831 /* FeedTableViewController.m in Sources */,
 				5F9582A61A998CF200144DF6 /* RequestTableViewCell.m in Sources */,
 				5F0FFCCB1A9951A7005F234F /* GetHelpViewController.m in Sources */,
