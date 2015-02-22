@@ -8,6 +8,9 @@
 
 #import "FeedTableViewController.h"
 #import "FeedCardView.h"
+#import "UpdateComposerViewController.h"
+#import "AppDelegate.h"
+#import "EventTableViewController.h"
 
 @interface FeedTableViewController ()
 
@@ -16,6 +19,15 @@
 @implementation FeedTableViewController
 
 - (instancetype) initWithStyle:(UITableViewStyle)style event:(PFObject *)event isStaff:(BOOL) staff {
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc]
+                                   initWithTitle:@"back"
+                                   style: UIBarButtonItemStylePlain
+                                   target:self
+                                   action:@selector(dismissView:)];
+    self.navigationItem.leftBarButtonItem = backButton;
+    
+
+    [self.tableView setBackgroundColor:[UIColor grayColor]];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self = [super initWithStyle:style];
     self.event = event;
@@ -34,7 +46,11 @@
     }];
     return self;
 }
-
+- (void) dismissView:(UIBarButtonItem*)sender {
+    EventTableViewController *event = [[EventTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    appDelegate.window.rootViewController = event;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -68,8 +84,15 @@
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         NSLog(@"lets bring up the composer!");
+        UpdateComposerViewController *composer = [[UpdateComposerViewController alloc] initWithEventID:self.event[@"fbid"]];
+        UINavigationController *composerNav = [[UINavigationController alloc] initWithRootViewController:composer];
+        [composer setTitle:@"Composer!"];
+        [self presentViewController:composerNav animated:YES completion:^{
+            NSLog(@"yay presented");
+        }];
     }
 }
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([indexPath section] == 0) {
         return 50;
