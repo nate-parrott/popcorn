@@ -18,6 +18,7 @@
 		5F9582A61A998CF200144DF6 /* RequestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9582A51A998CF200144DF6 /* RequestTableViewCell.m */; };
 		5F9582A91A99963B00144DF6 /* NSSadboys2001.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9582A81A99963B00144DF6 /* NSSadboys2001.m */; };
 		5F9582AC1A99A6D300144DF6 /* FeedCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = F8C9769B1A99466C00FC2831 /* FeedCardView.m */; };
+		5F9582AE1A99B30200144DF6 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F9582AD1A99B30200144DF6 /* Launch Screen.xib */; };
 		5FE1F7C41A987EB400394947 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE1F7C31A987EB400394947 /* main.m */; };
 		5FE1F7D21A987EB400394947 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FE1F7D11A987EB400394947 /* Images.xcassets */; };
 		5FE1F7E11A987EB500394947 /* PopcornTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE1F7E01A987EB500394947 /* PopcornTests.m */; };
@@ -60,6 +61,7 @@
 		5F9582A51A998CF200144DF6 /* RequestTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestTableViewCell.m; sourceTree = "<group>"; };
 		5F9582A71A99963B00144DF6 /* NSSadboys2001.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSSadboys2001.h; sourceTree = "<group>"; };
 		5F9582A81A99963B00144DF6 /* NSSadboys2001.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSSadboys2001.m; sourceTree = "<group>"; };
+		5F9582AD1A99B30200144DF6 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		5FE1F7BE1A987EB400394947 /* Popcorn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Popcorn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FE1F7C21A987EB400394947 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FE1F7C31A987EB400394947 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				5F9582A71A99963B00144DF6 /* NSSadboys2001.h */,
 				5F9582A81A99963B00144DF6 /* NSSadboys2001.m */,
 				5FE1F7D11A987EB400394947 /* Images.xcassets */,
+				5F9582AD1A99B30200144DF6 /* Launch Screen.xib */,
 				5FE1F7C11A987EB400394947 /* Supporting Files */,
 			);
 			path = Popcorn;
@@ -291,6 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F9582A31A99896400144DF6 /* RequestTableStoryboard.storyboard in Resources */,
+				5F9582AE1A99B30200144DF6 /* Launch Screen.xib in Resources */,
 				5F0FFCCC1A9951A7005F234F /* GetHelpViewController.xib in Resources */,
 				5FE1F7D21A987EB400394947 /* Images.xcassets in Resources */,
 			);

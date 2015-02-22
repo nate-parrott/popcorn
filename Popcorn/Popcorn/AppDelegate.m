@@ -49,8 +49,31 @@
     [self.window setBackgroundColor:[UIColor whiteColor]];
     [self.window makeKeyAndVisible];
     
+    [self doPostLaunchSplashAnimation];
+    
     return YES;
 }
+
+- (void)doPostLaunchSplashAnimation {
+    CGFloat radius = sqrtf(powf(self.window.rootViewController.view.bounds.size.width/2, 2) + powf(self.window.rootViewController.view.bounds.size.height/2, 2));
+    
+    UIView *cover = [[UIView alloc] initWithFrame:CGRectMake(0, 0, radius * 2, radius * 2)];
+    [self.window.rootViewController.view addSubview:cover];
+    cover.center = CGPointMake(cover.superview.bounds.size.width/2, cover.superview.bounds.size.height/2);
+    cover.backgroundColor = [UIColor colorWithRed:0.984 green:0.090 blue:0.725 alpha:1.000];
+    UIImageView *popcorn = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Popcorn"]];
+    [popcorn sizeToFit];
+    [cover addSubview:popcorn];
+    cover.layer.cornerRadius = radius;
+    cover.clipsToBounds = YES;
+    popcorn.center = CGPointMake(cover.bounds.size.width/2, cover.bounds.size.height/2);
+    [UIView animateWithDuration:0.3 delay:0.3 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        cover.transform = CGAffineTransformMakeScale(0.001, 0.001);
+    } completion:^(BOOL finished) {
+        [cover removeFromSuperview];
+    }];
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
