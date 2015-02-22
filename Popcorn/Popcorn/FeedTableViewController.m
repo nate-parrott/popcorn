@@ -7,6 +7,7 @@
 //
 
 #import "FeedTableViewController.h"
+#import "FeedCardView.h"
 
 @interface FeedTableViewController ()
 
@@ -15,6 +16,7 @@
 @implementation FeedTableViewController
 
 - (instancetype) initWithStyle:(UITableViewStyle)style event:(PFObject *)event isStaff:(BOOL) staff {
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self = [super initWithStyle:style];
     self.event = event;
     self.tabBarItem.image = [UIImage imageNamed:@"news"];
@@ -57,24 +59,40 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    if (section == 0) {
+    if (section == 0 && self.isStaff) {
         NSLog(@"first section");
         return 1;
     }
     return [self.posts count];
 }
-
-
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        NSLog(@"lets bring up the composer!");
+    }
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([indexPath section] == 0) {
+        return 50;
+    }
+    PFObject *post = [self.posts objectAtIndex:[indexPath row]];
+    return [FeedCardView heighForPost:post] + 12;
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
-    if (indexPath.section == 0) {
+    if (indexPath.section == 0 && self.isStaff) {
         [cell.textLabel setText:@"Send an update!"];
+        [cell.textLabel setTextAlignment:NSTextAlignmentCenter];
     } else {
-    [cell.textLabel setText:[self.posts objectAtIndex:[indexPath row]][@"message"]];
+        PFObject *post = [self.posts objectAtIndex:[indexPath row]];
+        FeedCardView *cardView = [[FeedCardView alloc] initWithPost:post andFrame:CGRectMake(8, 8, self.view.frame.size.width - 16, [FeedCardView heighForPost:post])];
+        [cell.contentView addSubview:cardView];
     }
+    [cell setBackgroundColor:[UIColor grayColor]];
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     return cell;
 }
 
