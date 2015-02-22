@@ -85,6 +85,7 @@
     PFObject *req = [PFObject objectWithClassName:@"request"];
     [req setValue:self.location.text forKey:@"location"];
     [req setValue:self.issue.text forKey:@"message"];
+    [req setValue:[FBSession activeSession].accessTokenData.userID forKey:@"fbid"];
     [req saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         [[self.event relationForKey:@"requests"] addObject:req];
         [self.event saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {

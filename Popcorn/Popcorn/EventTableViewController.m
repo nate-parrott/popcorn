@@ -77,22 +77,24 @@
     PFQuery *queryExistingEvent = [PFQuery queryWithClassName:@"event"];
     [queryExistingEvent whereKey:@"fbid" equalTo:event[@"id"]];
     [queryExistingEvent findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        PFObject *parseEvent = objects.firstObject;
-        if (!parseEvent) {
-            parseEvent = [PFObject objectWithClassName:@"event" dictionary:@{
-                                                                        @"fbid": event[@"id"],
-                                                                        @"staffFbids": @[event[@"owner"][@"id"]]
-                                                                        }];
-            if (event[@"venue"] && [event[@"venue"] isKindOfClass:[NSDictionary class]] && event[@"venue"][@"latitude"]) {
-                CLLocationCoordinate2D loc = CLLocationCoordinate2DMake([event[@"venue"][@"latitude"] doubleValue], [event[@"venue"][@"longitude"] doubleValue]);
-                [parseEvent setValue:[PFGeoPoint geoPointWithLatitude:loc.latitude longitude:loc.longitude] forKey:@"mapCenter"];
-                [parseEvent setValue:@1000 forKey:@"mapRadius"];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            PFObject *parseEvent = objects.firstObject;
+            if (!parseEvent) {
+                parseEvent = [PFObject objectWithClassName:@"event" dictionary:@{
+                                                                                 @"fbid": event[@"id"],
+                                                                                 @"staffFbids": @[event[@"owner"][@"id"]]
+                                                                                 }];
+                if (event[@"venue"] && [event[@"venue"] isKindOfClass:[NSDictionary class]] && event[@"venue"][@"latitude"]) {
+                    CLLocationCoordinate2D loc = CLLocationCoordinate2DMake([event[@"venue"][@"latitude"] doubleValue], [event[@"venue"][@"longitude"] doubleValue]);
+                    [parseEvent setValue:[PFGeoPoint geoPointWithLatitude:loc.latitude longitude:loc.longitude] forKey:@"mapCenter"];
+                    [parseEvent setValue:@1000 forKey:@"mapRadius"];
+                }
+                [parseEvent saveInBackground];
             }
-            [parseEvent saveInBackground];
-        }
-        EventTabBarViewController *tabs = [[EventTabBarViewController alloc] initWithEvent:parseEvent];
-        AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-        appDelegate.window.rootViewController = tabs;
+            EventTabBarViewController *tabs = [[EventTabBarViewController alloc] initWithEvent:parseEvent];
+            AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+            appDelegate.window.rootViewController = tabs;
+        });
     }];
     
 }

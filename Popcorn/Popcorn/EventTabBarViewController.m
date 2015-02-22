@@ -11,6 +11,8 @@
 #import <FacebookSDK.h>
 #import "MapViewController.h"
 #import "GetHelpViewController.h"
+#import "RequestTableViewController.h"
+#import "AppDelegate.h"
 
 @interface EventTabBarViewController ()
 
@@ -21,11 +23,25 @@
 - (instancetype)initWithEvent:(PFObject *)event {
     self = [super init];
     
+    NSMutableArray *tabs = [NSMutableArray new];
+    
+    FeedTableViewController *feed = [[FeedTableViewController alloc] initWithStyle:UITableViewStylePlain event:event isStaff:[event[@"staffFbids"] containsObject:[FBSession activeSession].accessTokenData.userID]];
+    [tabs addObject:feed];
+    
     MapViewController *map = [[MapViewController alloc] init];
     map.event = event;
-    FeedTableViewController *feed = [[FeedTableViewController alloc] initWithStyle:UITableViewStylePlain event:event isStaff:[event[@"staffFbids"] containsObject:[FBSession activeSession].accessTokenData.userID]];
+    [tabs addObject:map];
+    
     GetHelpViewController *getHelpVC = [[GetHelpViewController alloc] initWithNibName:@"GetHelpViewController" bundle:nil];
     getHelpVC.event = event;
+    [tabs addObject:getHelpVC];
+    
+    if ([[AppDelegate shared] isHostOfEvent:event]) {
+        RequestTableViewController *requestVC = [[UIStoryboard storyboardWithName:@"RequestTableStoryboard" bundle:nil] instantiateInitialViewController];
+        requestVC.event = event;
+        requestVC.tabBarItem.image = [UIImage imageNamed:@"inbox"];
+        [tabs addObject:requestVC];
+    }
     // get the event title:
     [FBRequestConnection startWithGraphPath:[NSString stringWithFormat:@"/%@", event[@"fbid"]]
                                  parameters: nil
@@ -38,8 +54,7 @@
                               NSLog(@"%@", result);
                               feed.title = result[@"name"];
                           }];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:feed];
-    self.viewControllers = @[nav, map, getHelpVC];
+    self.viewControllers = tabs;
     
     return self;
 }
