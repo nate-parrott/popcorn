@@ -29,6 +29,9 @@
                                               NSError *error
                                               ) {
                               
+                              if (error) {
+                                  NSLog(@"error loading events");
+                              }
                               self.events = [result valueForKey:@"data"];
                               [self.tableView reloadData];
                           }];
