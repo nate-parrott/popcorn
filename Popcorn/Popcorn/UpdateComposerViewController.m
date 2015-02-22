@@ -60,13 +60,13 @@
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 - (void) postUpdate:(UIBarButtonItem*)sender {
-    NSLog(@"Posting!");
     PFObject *post = [[PFObject alloc]initWithClassName:@"post"];
     post[@"message"] = self.messageComposer.text;
     post[@"title"] = self.titleField.text;
     post[@"eventFBid"] = self.eventID;
     [post saveInBackground];
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    self.completionBlock(post);
 }
 /*
 #pragma mark - Navigation

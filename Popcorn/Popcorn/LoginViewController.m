@@ -32,7 +32,6 @@
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
                             user:(id<FBGraphUser>)user {
     
-    NSLog(@"JEllo world!%@", [user name]);
     [(AppDelegate*)[[UIApplication sharedApplication] delegate] window].rootViewController = [[EventTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
 
   

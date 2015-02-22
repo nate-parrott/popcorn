@@ -35,7 +35,6 @@
                                               id result,
                                               NSError *error
                                               ) {
-                              NSLog(@"%@", result);
                               feed.title = result[@"name"];
                           }];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:feed];

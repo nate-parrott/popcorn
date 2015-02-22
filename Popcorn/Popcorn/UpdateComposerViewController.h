@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 @interface UpdateComposerViewController : UIViewController
 @property NSString *eventID;
+@property (nonatomic, copy) void(^completionBlock)(PFObject*);
 - (instancetype) initWithEventID:(NSString*)eventID;
 @end

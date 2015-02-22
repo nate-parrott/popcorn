@@ -11,7 +11,7 @@
 
 @interface FeedTableViewController : UITableViewController
 @property PFObject* event;
-@property NSArray *posts;
+@property NSMutableArray *posts;
 @property BOOL  isStaff;
 
 - (instancetype) initWithStyle:(UITableViewStyle)style event:(PFObject*) event isStaff:(BOOL)staff;
