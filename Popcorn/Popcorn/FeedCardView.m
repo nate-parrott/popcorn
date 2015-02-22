@@ -26,6 +26,7 @@
     
     UILabel *headerLabel = [[UILabel alloc] initWithFrame: CGRectMake(6, 4, self.frame.size.width - 8, titleSize.height)];
     [headerLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:14.0f]];
+    [headerLabel setTextColor:self.tintColor];
     [headerLabel setText:self.post[@"title"]];
     [self addSubview:headerLabel];
     CGSize messageSize = [self.post[@"message"] sizeWithAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Bold" size:14.0f]}];
@@ -42,6 +43,24 @@
     [message setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:14.0f]];
     [self addSubview:message];
     
+    if (self.post[@"photo"]) {
+        PFFile *postImage = self.post[@"photo"];
+        [postImage getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
+            if (!error) {
+                CGFloat photoHeight = (CGFloat)[self.post[@"aspectRatio"] doubleValue]*([UIScreen mainScreen].bounds.size.width - 16);
+                if (!self.image) {
+                    UIImage *image = [UIImage imageWithData:imageData];
+                    self.image = [[UIImageView alloc] initWithFrame:CGRectMake(4, headerLabel.frame.size.height+6 + message.frame.size.height, self.frame.size.width - 8, photoHeight)];
+                    [self.image setImage:image];
+                }
+                self.image.contentMode = UIViewContentModeScaleAspectFill;
+                self.image.clipsToBounds = YES;
+                
+                [self addSubview:self.image];
+            }
+        }];
+    }
+    
 
 }
 + (CGFloat)heighForPost: (PFObject*)post {
@@ -50,8 +69,12 @@
                                                           attributes:@{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Bold" size:14.0f]}
                                                              context:nil];
     CGSize titleSize = [post[@"title"] sizeWithAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Bold" size:14.0f]}];
+    CGFloat photoHeight = 0;
+    if (post[@"photo"]) {
+        photoHeight = (CGFloat)[post[@"aspectRatio"] doubleValue]*([UIScreen mainScreen].bounds.size.width - 16);
+    }
     
-    return titleSize.height + messageDims.size.height + 12;
+    return titleSize.height + messageDims.size.height + photoHeight+ 12;
 
 }
 /*

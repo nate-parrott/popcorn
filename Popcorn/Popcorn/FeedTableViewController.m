@@ -53,8 +53,6 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"Viewdidload");
-    NSLog(@"%@", self.posts);
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

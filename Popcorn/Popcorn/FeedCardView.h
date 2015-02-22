@@ -11,6 +11,7 @@
 
 @interface FeedCardView : UIView
 @property PFObject *post;
+@property UIImageView *image;
 - (id)initWithPost:(PFObject*) post andFrame:(CGRect)frame;
 + (CGFloat)heighForPost: (PFObject*)post;
 @end
