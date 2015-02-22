@@ -17,6 +17,7 @@
 - (instancetype) initWithStyle:(UITableViewStyle)style event:(PFObject *)event isStaff:(BOOL) staff {
     self = [super initWithStyle:style];
     self.event = event;
+    self.tabBarItem.image = [UIImage imageNamed:@"news"];
     self.isStaff = staff;
     PFQuery *postQuery = [PFQuery queryWithClassName:@"post"];
     [postQuery whereKey:@"eventFBid" equalTo:self.event[@"fbid"]];

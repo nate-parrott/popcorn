@@ -24,6 +24,7 @@
 - (instancetype)init {
     self = [super init];
     self.title = @"Map";
+    self.tabBarItem.image = [UIImage imageNamed:@"map"];
     return self;
 }
 

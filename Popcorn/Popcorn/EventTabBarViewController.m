@@ -10,6 +10,7 @@
 #import "FeedTableViewController.h"
 #import <FacebookSDK.h>
 #import "MapViewController.h"
+#import "GetHelpViewController.h"
 
 @interface EventTabBarViewController ()
 
@@ -23,6 +24,8 @@
     MapViewController *map = [[MapViewController alloc] init];
     map.event = event;
     FeedTableViewController *feed = [[FeedTableViewController alloc] initWithStyle:UITableViewStylePlain event:event isStaff:[event[@"staffFbids"] containsObject:[FBSession activeSession].accessTokenData.userID]];
+    GetHelpViewController *getHelpVC = [[GetHelpViewController alloc] initWithNibName:@"GetHelpViewController" bundle:nil];
+    getHelpVC.event = event;
     // get the event title:
     [FBRequestConnection startWithGraphPath:[NSString stringWithFormat:@"/%@", event[@"fbid"]]
                                  parameters: nil
@@ -36,7 +39,7 @@
                               feed.title = result[@"name"];
                           }];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:feed];
-    self.viewControllers = @[nav, map];
+    self.viewControllers = @[nav, map, getHelpVC];
     
     return self;
 }

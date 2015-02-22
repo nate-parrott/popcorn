@@ -26,6 +26,7 @@
     
     // Initialize our window.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.tintColor = [UIColor colorWithRed:0.998605668545 green:0.248933106661 blue:0.770995974541 alpha:1.0];
     
     if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
         
