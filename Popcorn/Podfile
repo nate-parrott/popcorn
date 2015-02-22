@@ -5,6 +5,7 @@ target 'Popcorn' do
 
 pod 'Parse'
 pod 'Facebook-iOS-SDK'
+pod 'SDWebImage'
 
 end
 

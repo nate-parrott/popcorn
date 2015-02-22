@@ -17,8 +17,7 @@
 		5F9582A31A99896400144DF6 /* RequestTableStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F9582A21A99896400144DF6 /* RequestTableStoryboard.storyboard */; };
 		5F9582A61A998CF200144DF6 /* RequestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9582A51A998CF200144DF6 /* RequestTableViewCell.m */; };
 		5F9582A91A99963B00144DF6 /* NSSadboys2001.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9582A81A99963B00144DF6 /* NSSadboys2001.m */; };
-		5F9582AA1A99A29F00144DF6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE1F7C61A987EB400394947 /* AppDelegate.m */; };
-		5F9582AB1A99A2A700144DF6 /* EventTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8C9768F1A98A55600FC2831 /* EventTableViewController.m */; };
+		5F9582AC1A99A6D300144DF6 /* FeedCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = F8C9769B1A99466C00FC2831 /* FeedCardView.m */; };
 		5FE1F7C41A987EB400394947 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE1F7C31A987EB400394947 /* main.m */; };
 		5FE1F7D21A987EB400394947 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FE1F7D11A987EB400394947 /* Images.xcassets */; };
 		5FE1F7E11A987EB500394947 /* PopcornTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE1F7E01A987EB500394947 /* PopcornTests.m */; };
@@ -29,7 +28,6 @@
 		F8C976891A988ADB00FC2831 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8C976871A988ADB00FC2831 /* LoginViewController.m */; };
 		F8C976931A991A9A00FC2831 /* EventTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8C976921A991A9A00FC2831 /* EventTabBarViewController.m */; };
 		F8C976961A991F5400FC2831 /* FeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8C976951A991F5400FC2831 /* FeedTableViewController.m */; };
-		F8C9769C1A99466C00FC2831 /* FeedCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = F8C9769B1A99466C00FC2831 /* FeedCardView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -345,13 +343,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8C9769C1A99466C00FC2831 /* FeedCardView.m in Sources */,
+				5F9582AC1A99A6D300144DF6 /* FeedCardView.m in Sources */,
 				5F9582A01A9988E200144DF6 /* RequestTableViewController.m in Sources */,
 				F8B23F7A1A996C9B00F2CF01 /* EventTableViewController.m in Sources */,
 				F8B23F791A996C8D00F2CF01 /* AppDelegate.m in Sources */,
 				5F0FFCBF1A99332A005F234F /* MapPin.m in Sources */,
 				5F0FFCC41A99488D005F234F /* PinAnnotationView.m in Sources */,
-				F8C9769C1A99466C00FC2831 /* FeedCardView.m in Sources */,
 				F8C976931A991A9A00FC2831 /* EventTabBarViewController.m in Sources */,
 				5FE1F7C41A987EB400394947 /* main.m in Sources */,
 				5F0FFCCF1A9951D5005F234F /* NPKeyboardAvoidanceView.m in Sources */,

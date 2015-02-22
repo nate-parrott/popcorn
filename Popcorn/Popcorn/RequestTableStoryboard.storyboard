@@ -25,16 +25,8 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5G4-tn-wCa">
-                                            <rect key="frame" x="8" y="8" width="33" height="33"/>
-                                            <color key="backgroundColor" red="0.58794188499450684" green="0.5879243016242981" blue="0.58793431520462036" alpha="1" colorSpace="calibratedRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="33" id="JXP-sG-p4c"/>
-                                                <constraint firstAttribute="height" constant="33" id="Lo7-zu-Vt8"/>
-                                            </constraints>
-                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fK-NM-K2N">
-                                            <rect key="frame" x="8" y="49" width="304" height="27"/>
+                                            <rect key="frame" x="8" y="55.5" width="304" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -54,24 +46,35 @@
                                                 <color key="titleColor" red="0.98431372549999996" green="0.090196078430000007" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="toggleDone:" destination="zZb-RE-wWU" eventType="touchUpInside" id="O6e-9B-Uea"/>
+                                            </connections>
                                         </button>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yz6-Ng-Bxp" customClass="FBProfilePictureView">
+                                            <rect key="frame" x="8" y="8" width="33" height="33"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="33" id="7YD-u6-u1b"/>
+                                                <constraint firstAttribute="width" constant="33" id="VrV-OL-jR4"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="Yz6-Ng-Bxp" firstAttribute="leading" secondItem="Xl7-MC-BEw" secondAttribute="leadingMargin" id="3Xh-Jp-Bdn"/>
                                         <constraint firstItem="Vmu-bD-hkK" firstAttribute="leading" secondItem="Xl7-MC-BEw" secondAttribute="leadingMargin" id="3x0-4s-zzj"/>
+                                        <constraint firstItem="8fK-NM-K2N" firstAttribute="top" secondItem="Yz6-Ng-Bxp" secondAttribute="bottom" constant="14.5" id="5vy-dz-mK0"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="Vmu-bD-hkK" secondAttribute="bottom" constant="5" id="8j8-TK-7JI"/>
-                                        <constraint firstItem="8fK-NM-K2N" firstAttribute="top" secondItem="5G4-tn-wCa" secondAttribute="bottom" constant="8" id="ALo-XT-Mxg"/>
                                         <constraint firstItem="8fK-NM-K2N" firstAttribute="trailing" secondItem="Xl7-MC-BEw" secondAttribute="trailingMargin" id="FqS-LP-byh"/>
                                         <constraint firstItem="YLE-8j-Dpx" firstAttribute="centerY" secondItem="CFH-Wa-ybG" secondAttribute="centerY" constant="0.25" id="JWK-br-yoP"/>
                                         <constraint firstItem="CFH-Wa-ybG" firstAttribute="leading" secondItem="YLE-8j-Dpx" secondAttribute="trailing" constant="8" id="JhE-1e-Ili"/>
                                         <constraint firstItem="8fK-NM-K2N" firstAttribute="leading" secondItem="Xl7-MC-BEw" secondAttribute="leadingMargin" id="MDH-oa-y3y"/>
-                                        <constraint firstItem="YLE-8j-Dpx" firstAttribute="leading" secondItem="5G4-tn-wCa" secondAttribute="trailing" constant="8" id="RPn-xV-kiH"/>
                                         <constraint firstItem="Vmu-bD-hkK" firstAttribute="top" secondItem="8fK-NM-K2N" secondAttribute="bottom" constant="4" id="Tr6-0s-kPX"/>
-                                        <constraint firstItem="5G4-tn-wCa" firstAttribute="leading" secondItem="Xl7-MC-BEw" secondAttribute="leadingMargin" id="fXW-56-Vtu"/>
+                                        <constraint firstItem="Yz6-Ng-Bxp" firstAttribute="top" secondItem="Xl7-MC-BEw" secondAttribute="topMargin" id="gxj-IO-5SG"/>
                                         <constraint firstItem="YLE-8j-Dpx" firstAttribute="trailing" secondItem="Xl7-MC-BEw" secondAttribute="trailingMargin" id="hwa-XJ-IgA"/>
+                                        <constraint firstItem="Yz6-Ng-Bxp" firstAttribute="centerY" secondItem="YLE-8j-Dpx" secondAttribute="centerY" constant="0.25" id="p2T-UM-l5c"/>
+                                        <constraint firstItem="YLE-8j-Dpx" firstAttribute="leading" secondItem="Yz6-Ng-Bxp" secondAttribute="trailing" constant="8" id="qjt-fO-XJU"/>
                                         <constraint firstItem="Vmu-bD-hkK" firstAttribute="trailing" secondItem="Xl7-MC-BEw" secondAttribute="trailingMargin" id="tke-5N-PZc"/>
-                                        <constraint firstItem="5G4-tn-wCa" firstAttribute="top" secondItem="Xl7-MC-BEw" secondAttribute="topMargin" id="tsd-9N-loo"/>
                                         <constraint firstItem="CFH-Wa-ybG" firstAttribute="trailing" secondItem="Xl7-MC-BEw" secondAttribute="trailingMargin" id="u0q-8Z-rBT"/>
-                                        <constraint firstItem="YLE-8j-Dpx" firstAttribute="centerY" secondItem="5G4-tn-wCa" secondAttribute="centerY" id="vKG-3z-LE5"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
@@ -84,7 +87,7 @@
                                     <outlet property="issue" destination="8fK-NM-K2N" id="mLJ-ih-Kil"/>
                                     <outlet property="location" destination="Vmu-bD-hkK" id="h4v-ch-x7y"/>
                                     <outlet property="name" destination="YLE-8j-Dpx" id="Xt7-gd-fQY"/>
-                                    <outlet property="profilePic" destination="5G4-tn-wCa" id="Ycn-GK-aRf"/>
+                                    <outlet property="profilePic" destination="Yz6-Ng-Bxp" id="aua-UP-YaR"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

@@ -8,6 +8,7 @@
 
 #import "RequestTableViewCell.h"
 #import <FacebookSDK.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface RequestTableViewCell ()
 
@@ -20,10 +21,16 @@
 - (void)setRequest:(PFObject *)request {
     _request = request;
     self.name.text = @"";
-    self.profilePic.image = nil;
     self.issue.text = [request valueForKey:@"message"];
-    self.location.text = [request valueForKey:@"location"];
+    NSDateFormatter *fmt = [NSDateFormatter new];
+    fmt.dateStyle = NSDateFormatterShortStyle;
+    fmt.timeStyle = NSDateFormatterShortStyle;
+    NSString *timeString = [fmt stringFromDate:request.createdAt];
+    self.location.text = [NSString stringWithFormat:@"%@ (%@)", [request valueForKey:@"location"], timeString];
     self.done = [[request valueForKey:@"resolved"] boolValue];
+    
+    self.profilePic.profileID = self.request[@"fbid"];
+    
     [FBRequestConnection startWithGraphPath:[NSString stringWithFormat:@"/%@", self.request[@"fbid"]]
                                  parameters:nil
                                  HTTPMethod:@"GET"

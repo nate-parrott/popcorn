@@ -34,7 +34,7 @@
 }
 
 - (void)reload {
-    [[[self.event relationForKey:@"requests"] query] findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+    [[[[self.event relationForKey:@"requests"] query] orderByDescending:@"createdAt"] findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         self.requests = objects;
         [self.refreshControl endRefreshing];
     }];

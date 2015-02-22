@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import <FacebookSDK.h>
 
 @interface RequestTableViewCell : UITableViewCell
 
 @property (nonatomic) IBOutlet UILabel *name, *issue, *location;
-@property (nonatomic) IBOutlet UIImageView *profilePic;
+@property (nonatomic) IBOutlet FBProfilePictureView *profilePic;
 @property (nonatomic) IBOutlet UIButton *doneButton;
 
 @property (nonatomic) PFObject *request;
