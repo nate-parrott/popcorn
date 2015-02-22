@@ -15,6 +15,9 @@
 @property (strong, nonatomic) UIWindow *window;
 
 + (AppDelegate *)shared;
+- (void)didLogIn;
+
+- (NSString *)activeUserId;
 - (BOOL)isHostOfEvent:(PFObject *)event;
 
 @end

@@ -19,6 +19,7 @@
 		5F9582A91A99963B00144DF6 /* NSSadboys2001.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9582A81A99963B00144DF6 /* NSSadboys2001.m */; };
 		5F9582AC1A99A6D300144DF6 /* FeedCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = F8C9769B1A99466C00FC2831 /* FeedCardView.m */; };
 		5F9582AE1A99B30200144DF6 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F9582AD1A99B30200144DF6 /* Launch Screen.xib */; };
+		5F9582B21A9A24E900144DF6 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F9582B11A9A24E900144DF6 /* LoginViewController.xib */; };
 		5FE1F7C41A987EB400394947 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE1F7C31A987EB400394947 /* main.m */; };
 		5FE1F7D21A987EB400394947 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FE1F7D11A987EB400394947 /* Images.xcassets */; };
 		5FE1F7E11A987EB500394947 /* PopcornTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE1F7E01A987EB500394947 /* PopcornTests.m */; };
@@ -62,6 +63,7 @@
 		5F9582A71A99963B00144DF6 /* NSSadboys2001.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSSadboys2001.h; sourceTree = "<group>"; };
 		5F9582A81A99963B00144DF6 /* NSSadboys2001.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSSadboys2001.m; sourceTree = "<group>"; };
 		5F9582AD1A99B30200144DF6 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
+		5F9582B11A9A24E900144DF6 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		5FE1F7BE1A987EB400394947 /* Popcorn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Popcorn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FE1F7C21A987EB400394947 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FE1F7C31A987EB400394947 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				F8C9768F1A98A55600FC2831 /* EventTableViewController.m */,
 				F8C976881A988ADB00FC2831 /* LoginViewController.h */,
 				F8C976871A988ADB00FC2831 /* LoginViewController.m */,
+				5F9582B11A9A24E900144DF6 /* LoginViewController.xib */,
 				F8C976911A991A9A00FC2831 /* EventTabBarViewController.h */,
 				F8C976921A991A9A00FC2831 /* EventTabBarViewController.m */,
 				F8C976941A991F5400FC2831 /* FeedTableViewController.h */,
@@ -159,9 +162,9 @@
 				5F0FFCC81A9951A7005F234F /* GetHelpViewController.h */,
 				5F0FFCC91A9951A7005F234F /* GetHelpViewController.m */,
 				5F0FFCCA1A9951A7005F234F /* GetHelpViewController.xib */,
-				5F0FFCBA1A992D9A005F234F /* MapViewController.h */,
 				F8B23F7B1A99726F00F2CF01 /* UpdateComposerViewController.h */,
 				F8B23F7C1A99726F00F2CF01 /* UpdateComposerViewController.m */,
+				5F0FFCBA1A992D9A005F234F /* MapViewController.h */,
 				5F0FFCBB1A992D9A005F234F /* MapViewController.m */,
 				5F0FFCCD1A9951CE005F234F /* NPKeyboardAvoidanceView.h */,
 				5F0FFCCE1A9951D5005F234F /* NPKeyboardAvoidanceView.m */,
@@ -293,6 +296,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F9582B21A9A24E900144DF6 /* LoginViewController.xib in Resources */,
 				5F9582A31A99896400144DF6 /* RequestTableStoryboard.storyboard in Resources */,
 				5F9582AE1A99B30200144DF6 /* Launch Screen.xib in Resources */,
 				5F0FFCCC1A9951A7005F234F /* GetHelpViewController.xib in Resources */,

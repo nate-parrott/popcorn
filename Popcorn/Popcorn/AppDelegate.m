@@ -34,12 +34,12 @@
         [FBSession openActiveSessionWithReadPermissions:@[@"public_profile", @"user_events"]
                                            allowLoginUI:NO
                                       completionHandler:^(FBSession *sessison, FBSessionState state, NSError *error) {
-                                          if (state == FBSessionStateOpen) {
-                                              self.window.rootViewController = [[EventTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
+                                          if (state & FBSessionStateOpen) {
+                                              [self didLogIn];
                                           }
                                       }];
     } else {
-        LoginViewController *loginViewController = [[LoginViewController alloc]init];
+        LoginViewController *loginViewController = [[LoginViewController alloc]initWithNibName:@"LoginViewController" bundle:nil];
         [self.window setRootViewController:loginViewController];
 
     }
@@ -107,8 +107,20 @@
     return (AppDelegate *)[UIApplication sharedApplication].delegate;
 }
 
+- (NSString *)activeUserId {
+    if ([FBSession activeSession].state & FBSessionStateOpen) {
+        return [[NSUserDefaults standardUserDefaults] valueForKey:@"ActiveUserId"];
+    } else {
+        return nil;
+    }
+}
+
 - (BOOL)isHostOfEvent:(PFObject *)event {
-    return [[event valueForKey:@"staffFbids"] containsObject:[FBSession activeSession].accessTokenData.userID];
+    return [[event valueForKey:@"staffFbids"] containsObject:[self activeUserId]];
+}
+
+- (void)didLogIn {
+    self.window.rootViewController = [[EventTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
 }
 
 @end

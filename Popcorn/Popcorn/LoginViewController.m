@@ -12,38 +12,29 @@
 #import "AppDelegate.h"
 
 @interface LoginViewController ()
+
+@property (nonatomic) IBOutlet UIView *loginButtonContainer;
+
 @end
 
 @implementation LoginViewController
 
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view setBackgroundColor:[UIColor redColor]];
     FBLoginView *loginView = [[FBLoginView alloc] initWithReadPermissions: @[@"public_profile", @"user_events"]];
     loginView.delegate = self;
-    [self.view addSubview: loginView];
-    // Do any additional setup after loading the view.
+    [self.loginButtonContainer addSubview: loginView];
+    loginView.center = CGPointMake(self.loginButtonContainer.bounds.size.width/2, self.loginButtonContainer.bounds.size.height/2);
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
                             user:(id<FBGraphUser>)user {
-    
-    [(AppDelegate*)[[UIApplication sharedApplication] delegate] window].rootViewController = [[EventTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
-
-  
+    [[NSUserDefaults standardUserDefaults] setValue:[user objectID] forKey:@"ActiveUserId"];
+    [[AppDelegate shared] didLogIn];
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

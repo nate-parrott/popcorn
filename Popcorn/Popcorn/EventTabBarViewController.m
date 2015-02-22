@@ -25,7 +25,7 @@
     
     NSMutableArray *tabs = [NSMutableArray new];
     
-    FeedTableViewController *feed = [[FeedTableViewController alloc] initWithStyle:UITableViewStylePlain event:event isStaff:[event[@"staffFbids"] containsObject:[FBSession activeSession].accessTokenData.userID]];
+    FeedTableViewController *feed = [[FeedTableViewController alloc] initWithStyle:UITableViewStylePlain event:event isStaff:[event[@"staffFbids"] containsObject:[AppDelegate shared].activeUserId]];
     [tabs addObject:feed];
     
     MapViewController *map = [[MapViewController alloc] init];

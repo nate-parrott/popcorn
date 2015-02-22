@@ -68,7 +68,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    if ([self.event valueForKey:@"mapCenter"]) {
+    if ([self.event valueForKey:@"mapCenter"] && self.pins == nil) {
         PFGeoPoint *center = [self.event valueForKey:@"mapCenter"];
         CLLocationDistance radius = [[self.event valueForKey:@"mapRadius"] doubleValue];
         MKMapPoint centerPt = MKMapPointForCoordinate(CLLocationCoordinate2DMake(center.latitude, center.longitude));
